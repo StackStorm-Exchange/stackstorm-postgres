@@ -1,0 +1,37 @@
+---
+description: "Insert a Postgres record into the given table with the given columns. https://www.postgresql.org/docs/current/sql-insert.html"
+enabled: true
+name: insert
+pack: postgres
+runner_type: python-script
+entry_point: insert.py
+parameters:
+  columns:
+    type: object
+    description: "Dictionary of column names and values to add to the given table. e.g. {'col_name': 'value'}"
+    required: true
+  table:
+    type: string
+    description: "Name of the table to add a new record to"
+    required: true
+  ### Begin common options
+  server:
+    type: string
+    description: "Hostname/IP address of the server. Overrides the setting in the pack's config."
+  port:
+    type: integer
+    description: "Port number to connect to Postgres on. Overrides the setting in the pack's config."
+  db_name:
+    type: string
+    description: "Name of Postgres database to connect to. Overrides the setting in the pack's config."
+  credentials:
+    type: string
+    description: "Name of the credentials object to use from the config"
+    default: "default"
+  username:
+    type: string
+    description: "User to authenticate as. Overrides the <credentials> parameter"
+  password:
+    type: string
+    description: "Password to authenticate with. Overrides the <credentials> parameter"
+    secret: true

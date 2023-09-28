@@ -1,0 +1,48 @@
+---
+description: "Query data with SELECT FROM WHERE syntax. https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-select/"
+enabled: true
+name: query
+pack: postgres
+runner_type: python-script
+entry_point: query.py
+parameters:
+  select_columns:
+    type: array
+    description: "List of columns to return in a SELECT statement. If non are passed then all (*) will be returned."
+    default: []
+  table:
+    type: string
+    description: "Table name to query data from."
+    required: true
+  trailing_clauses:
+    type: string
+    description: "String containing one or more clauses to include after WHERE such as: GROUP BY, ORDER BY, LIMIT, etc."
+    required: false
+  where_conditions:
+    type: array
+    description: "List of conditions to include in a WHERE clause."
+    default: []
+  ### Begin common options
+  server:
+    type: string
+    description: "Hostname/IP address of the server. Overrides the setting in the pack's config."
+  port:
+    type: integer
+    description: "Port number to connect to Postgres on. Overrides the setting in the pack's config."
+  ssl:
+    type: boolean
+    description: "Use SSL/HTTPS. Overrides the setting in the pack's config."
+  verify_ssl:
+    type: boolean
+    description: "Verify remote host SSL certificates. Overrides the setting in the pack's config."
+  credentials:
+    type: string
+    description: "Name of the credentials object to use from the config"
+    default: "default"
+  username:
+    type: string
+    description: "User to authenticate as. Overrides the <credentials> parameter"
+  password:
+    type: string
+    description: "Password to authenticate with. Overrides the <credentials> parameter"
+    secret: true

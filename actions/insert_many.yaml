@@ -1,0 +1,33 @@
+---
+description: "Insert many Postgres records into one or more tables. https://www.postgresql.org/docs/current/sql-insert.html"
+enabled: true
+name: insert_many
+pack: postgres
+runner_type: python-script
+entry_point: insert_many.py
+parameters:
+  data:
+    type: array
+    description: "List of objects containing a table name with columns to insert, e.x. [{'table': 'cracs.temp', 'columns': {'name': 'value'}}]"
+    required: true
+  ### Begin common options
+  server:
+    type: string
+    description: "Hostname/IP address of the server. Overrides the setting in the pack's config."
+  port:
+    type: integer
+    description: "Port number to connect to Postgres on. Overrides the setting in the pack's config."
+  db_name:
+    type: string
+    description: "Name of Postgres database to connect to. Overrides the setting in the pack's config."
+  credentials:
+    type: string
+    description: "Name of the credentials object to use from the config"
+    default: "default"
+  username:
+    type: string
+    description: "User to authenticate as. Overrides the <credentials> parameter"
+  password:
+    type: string
+    description: "Password to authenticate with. Overrides the <credentials> parameter"
+    secret: true
