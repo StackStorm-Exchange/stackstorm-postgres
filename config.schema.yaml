@@ -1,0 +1,23 @@
+---
+server:
+  type: string
+  description: "Hostname/IP address of the server"
+port:
+  type: integer
+  description: "Port number to connect to Postgres on"
+  default: 5432
+db_name:
+  type: string
+  description: "Name of the Postgres DB to connect to"
+
+credentials:
+  type: object
+  description: "Mapping of name to an object containing credential information"
+  properties:
+    username:
+      type: string
+      description: "User to authenticate as"
+    password:
+      type: string
+      description: "Password to authenticate with"
+      secret: true

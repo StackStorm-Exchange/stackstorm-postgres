@@ -1,0 +1,12 @@
+---
+ref: postgres
+name: postgres
+description: StackStorm integration pack for Postgres
+keywords: 
+    - postgres
+    - postgresql
+    - database
+    - timescale
+version: 0.1.0
+author: Encore Technologies
+email: code@encore.tech
